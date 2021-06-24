@@ -1,0 +1,46 @@
+-------------------------------------------------------------------------------------------------
+Zip file contains -
+1) Report
+2) Text file containing queries
+3) .qgs file
+4) .sqlite file
+-------------------------------------------------------------------------------------------------
+
+
+## This text file is provided for a better understanding of queries.
+
+-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
+
+[QUESTION 4] Display all the events (From DFW_WAZE) that happened in Arlington form 6 am to 12 pm on 12/1/2018. Each event should be displayed with different color and the background should be the roads.
+QUERY> select * from DFW_WAZE_shap_file where CITY='Arlington' and CREATE_TIM between '2018-12-01 06:00:00' and '2018-12-01 12:00:00' 
+
+-------------------------------------------------------------------------------------------------
+
+[QUESTION 5] Display the accidents that happened in Arlington, Dallas, Denton. Each city event in a different color and the background is the roads and county.
+QUERY> select * from DFW_WAZE_shap_file where EVENT_TYPE= 'accident' and CITY in ('Dallas', 'Arlington', 'Denton')
+
+-------------------------------------------------------------------------------------------------
+
+[QUESTION 6] Display the event type “accident” that happened in Tarrant county on 12/09/2018 between 6:00 and 19:00 where each city accidents are displayed with different color. Roads and counties need to be in the background.
+QUERY> select * from DFW_WAZE_shap_file where COUNTY='Tarrant' and EVENT_TYPE = 'accident' and CREATE_TIM between '2018-12-09 06:00:00' and '2018-12-09 19:00:00'
+
+-------------------------------------------------------------------------------------------------
+
+[QUESTION 7] Display the “traffic jam” in Collin county on 12/27/2018 between 7:00:00 and 15:00:00 and the background is the roads with county.
+QUERY> select * from DFW_WAZE_shap_file where COUNTY='Collin' and EVENT_TYPE = 'traffic jam' and CREATE_TIM between '2018-12-27 07:00:00' and '2018-12-27 15:00:00'
+
+-------------------------------------------------------------------------------------------------
+
+[QUESTION 8] For each county, display the event type ‘traffic jam’ on 12/24/2018. Each county with different color.
+QUERY> select * from DFW_WAZE_shap_file where EVENT_TYPE='traffic jam' and CREATE_TIM between '2018-12-24 00:00:00' and '2018-12-24 23:59:59'
+
+-------------------------------------------------------------------------------------------------
+
+[QUESTION 9] Display all the events on the road ‘I-20 E’ and ‘I-30 E’ on 12/9/2018 from 9 am to 12pm.Events on ‘I-20 E’ should be in different color than event in ‘I-30 E’.
+QUERY> select * from DFW_WAZE_shap_file where FACILITY_N in('I-20 E', 'I-30 E') and CREATE_TIM between '2018-12-09 09:00:00' and '2018-12-09 12:00:00'
+
+
+
+
